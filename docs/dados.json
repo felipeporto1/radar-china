@@ -1,1 +1,542 @@
-{}
+{
+ "buscas": {
+  "A-multi|Google Voos": {
+   "id": "A-multi",
+   "fonte": "Google Voos",
+   "tipo": "multi",
+   "janela": "A",
+   "rotulo": "Janela 1, GRU→PEK 11/10 + HKG→GRU 19/10",
+   "legs": [
+    [
+     "2027-10-11",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-10-19",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-11-16",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "B-multi|Google Voos": {
+   "id": "B-multi",
+   "fonte": "Google Voos",
+   "tipo": "multi",
+   "janela": "B",
+   "rotulo": "Janela 2, GRU→PEK 18/10 + HKG→GRU 26/10",
+   "legs": [
+    [
+     "2027-10-18",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-10-26",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-11-23",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "C-multi|Google Voos": {
+   "id": "C-multi",
+   "fonte": "Google Voos",
+   "tipo": "multi",
+   "janela": "C",
+   "rotulo": "Janela 3, GRU→PEK 25/10 + HKG→GRU 02/11",
+   "legs": [
+    [
+     "2027-10-25",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-02",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-11-30",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "D-multi|Google Voos": {
+   "id": "D-multi",
+   "fonte": "Google Voos",
+   "tipo": "multi",
+   "janela": "D",
+   "rotulo": "Janela 4, GRU→PEK 08/11 + HKG→GRU 16/11",
+   "legs": [
+    [
+     "2027-11-08",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-16",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-14",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "D-flex_2027-11-07_2027-11-16|Google Voos": {
+   "id": "D-flex_2027-11-07_2027-11-16",
+   "fonte": "Google Voos",
+   "tipo": "flex",
+   "janela": "D",
+   "rotulo": "Janela 4 com datas próximas, GRU→PEK 07/11 + HKG→GRU 16/11",
+   "legs": [
+    [
+     "2027-11-07",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-16",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-13",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "D-flex_2027-11-09_2027-11-16|Google Voos": {
+   "id": "D-flex_2027-11-09_2027-11-16",
+   "fonte": "Google Voos",
+   "tipo": "flex",
+   "janela": "D",
+   "rotulo": "Janela 4 com datas próximas, GRU→PEK 09/11 + HKG→GRU 16/11",
+   "legs": [
+    [
+     "2027-11-09",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-16",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-15",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "A-the|Google Voos": {
+   "id": "A-the",
+   "fonte": "Google Voos",
+   "tipo": "the",
+   "janela": "A",
+   "rotulo": "Janela 1, THE⇄GRU 10/10 e 21/10",
+   "legs": [
+    [
+     "2027-10-10",
+     "THE",
+     "GRU"
+    ],
+    [
+     "2027-10-21",
+     "GRU",
+     "THE"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-11-15",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "C-pek|Google Voos": {
+   "id": "C-pek",
+   "fonte": "Google Voos",
+   "tipo": "ref",
+   "janela": "C",
+   "rotulo": "Janela 3, GRU⇄PEK (referência)",
+   "legs": [
+    [
+     "2027-10-25",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-03",
+     "PEK",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-11-30",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "melhorJa": null
+  },
+  "A-pek|Aviasales": {
+   "id": "A-pek",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "A",
+   "rotulo": "Janela 1, São Paulo⇄Pequim",
+   "legs": [
+    [
+     "2027-10-11",
+     "SAO",
+     "BJS"
+    ],
+    [
+     "2027-10-20",
+     "BJS",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "A-hkg|Aviasales": {
+   "id": "A-hkg",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "A",
+   "rotulo": "Janela 1, São Paulo⇄Hong Kong",
+   "legs": [
+    [
+     "2027-10-11",
+     "SAO",
+     "HKG"
+    ],
+    [
+     "2027-10-20",
+     "HKG",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "A-the|Aviasales": {
+   "id": "A-the",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "the",
+   "janela": "A",
+   "rotulo": "Janela 1, THE⇄São Paulo",
+   "legs": [
+    [
+     "2027-10-10",
+     "THE",
+     "SAO"
+    ],
+    [
+     "2027-10-21",
+     "SAO",
+     "THE"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "B-pek|Aviasales": {
+   "id": "B-pek",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "B",
+   "rotulo": "Janela 2, São Paulo⇄Pequim",
+   "legs": [
+    [
+     "2027-10-18",
+     "SAO",
+     "BJS"
+    ],
+    [
+     "2027-10-27",
+     "BJS",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "B-hkg|Aviasales": {
+   "id": "B-hkg",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "B",
+   "rotulo": "Janela 2, São Paulo⇄Hong Kong",
+   "legs": [
+    [
+     "2027-10-18",
+     "SAO",
+     "HKG"
+    ],
+    [
+     "2027-10-27",
+     "HKG",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "B-the|Aviasales": {
+   "id": "B-the",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "the",
+   "janela": "B",
+   "rotulo": "Janela 2, THE⇄São Paulo",
+   "legs": [
+    [
+     "2027-10-17",
+     "THE",
+     "SAO"
+    ],
+    [
+     "2027-10-28",
+     "SAO",
+     "THE"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "C-pek|Aviasales": {
+   "id": "C-pek",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "C",
+   "rotulo": "Janela 3, São Paulo⇄Pequim",
+   "legs": [
+    [
+     "2027-10-25",
+     "SAO",
+     "BJS"
+    ],
+    [
+     "2027-11-03",
+     "BJS",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "C-hkg|Aviasales": {
+   "id": "C-hkg",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "C",
+   "rotulo": "Janela 3, São Paulo⇄Hong Kong",
+   "legs": [
+    [
+     "2027-10-25",
+     "SAO",
+     "HKG"
+    ],
+    [
+     "2027-11-03",
+     "HKG",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "C-the|Aviasales": {
+   "id": "C-the",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "the",
+   "janela": "C",
+   "rotulo": "Janela 3, THE⇄São Paulo",
+   "legs": [
+    [
+     "2027-10-24",
+     "THE",
+     "SAO"
+    ],
+    [
+     "2027-11-04",
+     "SAO",
+     "THE"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "D-pek|Aviasales": {
+   "id": "D-pek",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "D",
+   "rotulo": "Janela 4, São Paulo⇄Pequim",
+   "legs": [
+    [
+     "2027-11-08",
+     "SAO",
+     "BJS"
+    ],
+    [
+     "2027-11-17",
+     "BJS",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "D-hkg|Aviasales": {
+   "id": "D-hkg",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "ref",
+   "janela": "D",
+   "rotulo": "Janela 4, São Paulo⇄Hong Kong",
+   "legs": [
+    [
+     "2027-11-08",
+     "SAO",
+     "HKG"
+    ],
+    [
+     "2027-11-17",
+     "HKG",
+     "SAO"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  },
+  "D-the|Aviasales": {
+   "id": "D-the",
+   "fonte": "Aviasales",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "tipo": "the",
+   "janela": "D",
+   "rotulo": "Janela 4, THE⇄São Paulo",
+   "legs": [
+    [
+     "2027-11-07",
+     "THE",
+     "SAO"
+    ],
+    [
+     "2027-11-18",
+     "SAO",
+     "THE"
+    ]
+   ],
+   "melhor": null,
+   "melhorJa": null
+  }
+ },
+ "historico": {
+  "A-pek|Aviasales": [],
+  "A-hkg|Aviasales": [],
+  "A-the|Aviasales": [],
+  "B-pek|Aviasales": [],
+  "B-hkg|Aviasales": [],
+  "B-the|Aviasales": [],
+  "C-pek|Aviasales": [],
+  "C-hkg|Aviasales": [],
+  "C-the|Aviasales": [],
+  "D-pek|Aviasales": [],
+  "D-hkg|Aviasales": [],
+  "D-the|Aviasales": []
+ },
+ "datasBaratas": {
+  "SAO-BJS-2027-10": {
+   "rota": "São Paulo⇄Pequim",
+   "mes": "2027-10",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "itens": []
+  },
+  "SAO-BJS-2027-11": {
+   "rota": "São Paulo⇄Pequim",
+   "mes": "2027-11",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "itens": []
+  },
+  "SAO-HKG-2027-10": {
+   "rota": "São Paulo⇄Hong Kong",
+   "mes": "2027-10",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "itens": []
+  },
+  "SAO-HKG-2027-11": {
+   "rota": "São Paulo⇄Hong Kong",
+   "mes": "2027-11",
+   "quando": "2026-11-07T13:19:36.807Z",
+   "itens": []
+  }
+ },
+ "atualizado": "2026-11-07T13:19:36.807Z",
+ "cotaGoogle": 250,
+ "config": {
+  "tetoPrincipal": 8000,
+  "tetoThe": 1300,
+  "prazoPrincipal": "2027-07-31",
+  "janelas": [
+   {
+    "k": "A",
+    "nome": "Janela 1",
+    "tag": "Data do plano",
+    "ida": "2027-10-11",
+    "volta": "2027-10-19",
+    "voltaRef": "2027-10-20",
+    "theIda": "2027-10-10",
+    "theVolta": "2027-10-21"
+   },
+   {
+    "k": "B",
+    "nome": "Janela 2",
+    "tag": "Segunda opção",
+    "ida": "2027-10-18",
+    "volta": "2027-10-26",
+    "voltaRef": "2027-10-27",
+    "theIda": "2027-10-17",
+    "theVolta": "2027-10-28"
+   },
+   {
+    "k": "C",
+    "nome": "Janela 3",
+    "tag": "Terceira opção",
+    "ida": "2027-10-25",
+    "volta": "2027-11-02",
+    "voltaRef": "2027-11-03",
+    "theIda": "2027-10-24",
+    "theVolta": "2027-11-04"
+   },
+   {
+    "k": "D",
+    "nome": "Janela 4",
+    "tag": "Só se a economia for grande",
+    "ida": "2027-11-08",
+    "volta": "2027-11-16",
+    "voltaRef": "2027-11-17",
+    "theIda": "2027-11-07",
+    "theVolta": "2027-11-18"
+   }
+  ]
+ },
+ "log": []
+}
