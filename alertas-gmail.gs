@@ -3,7 +3,7 @@
  * Aviasales, Trip.com) do seu Gmail e entrega um resumo para o site do Radar.
  * Só lê. Não apaga, não responde, não muda nada no Gmail.
  */
-const BUSCA = 'newer_than:60d (from:kayak OR from:momondo OR from:skyscanner OR from:google.com OR from:aviasales OR from:trip.com)';
+const BUSCA = 'after:2026/11/07 (from:kayak OR from:momondo OR from:skyscanner OR from:google.com OR from:aviasales OR from:trip.com)';
 const CHINA = /(pequim|beijing|peking|hong ?kong|china|teresina|s[aã]o paulo)/i;
 const IATA = /\b(PEK|PKX|BJS|HKG|THE|GRU|SAO)\b/;
 const FORA = /(seguran[cç]a|security|senha|password|verifica[cç][aã]o|login)/i;
