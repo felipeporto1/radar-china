@@ -1,0 +1,38 @@
+name: Buscar passagens
+
+on:
+  schedule:
+    - cron: "15 10 * * *"   # todo dia às 7h15 de Teresina
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "prioridade = só os 4 bilhetes Brasil-China (gasta 4 buscas). diario = tudo (até 8)."
+        type: choice
+        options: [prioridade, diario]
+        default: prioridade
+
+permissions:
+  contents: write
+
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Buscar preços
+        run: node buscar.mjs
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          MODO: ${{ inputs.modo || 'diario' }}
+      - name: Salvar resultado
+        run: |
+          git config user.name "radar-china"
+          git config user.email "radar-china@users.noreply.github.com"
+          git add docs/dados.json
+          git commit -m "Preços de $(date -u +%F)" || echo "Sem mudança"
+          git push
