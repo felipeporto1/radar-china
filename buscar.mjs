@@ -193,7 +193,7 @@ if (TP || MOCK) {
 
 dados.atualizado = agora.toISOString();
 dados.cotaGoogle = Math.max(0, cota - usadas);
-dados.config = { tetoPrincipal: cfg.tetoPrincipal, tetoThe: cfg.tetoThe, prazoPrincipal: cfg.prazoPrincipal, janelas: J };
+dados.config = { tetoPrincipal: cfg.tetoPrincipal, tetoThe: cfg.tetoThe, prazoPrincipal: cfg.prazoPrincipal, janelas: J, diasAbertosGoogle: cfg.diasAbertosGoogle, alertasUrl: cfg.alertasUrl || "" };
 dados.log = log;
 await fs.writeFile(ARQ, JSON.stringify(dados, null, 1));
 
