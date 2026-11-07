@@ -143,7 +143,8 @@ let usadas = 0;
 const lista = tarefas().filter((t) => MODO !== "prioridade" || t.prio === 1).sort((a, b) => a.prio - b.prio);
 for (const t of lista) {
   if (!SERP) { log.push("Google Voos: falta a chave SERPAPI_KEY."); break; }
-  if (t.legs[0][0] > limiteGoogle) { dados.buscas[`${t.id}|Google Voos`] = { id: t.id, fonte: "Google Voos", tipo: t.tipo, janela: t.w.k, rotulo: t.rotulo, legs: t.legs, fechada: true, abre: addDias(t.legs[0][0], -cfg.diasAbertosGoogle), quando: agora.toISOString(), melhorJa: dados.buscas[`${t.id}|Google Voos`]?.melhorJa ?? null }; continue; }
+  const ultimaPerna = t.legs[t.legs.length - 1][0];
+  if (ultimaPerna > limiteGoogle) { dados.buscas[`${t.id}|Google Voos`] = { id: t.id, fonte: "Google Voos", tipo: t.tipo, janela: t.w.k, rotulo: t.rotulo, legs: t.legs, fechada: true, abre: addDias(ultimaPerna, -cfg.diasAbertosGoogle), quando: agora.toISOString(), melhorJa: dados.buscas[`${t.id}|Google Voos`]?.melhorJa ?? null }; continue; }
   if (usadas >= cfg.maxBuscasPorDia || cota - usadas <= (t.prio === 1 ? 0 : reserva)) { log.push(`Pulei ${t.rotulo}: guardando buscas do mês.`); continue; }
   try {
     usadas++;
