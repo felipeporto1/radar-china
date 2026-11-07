@@ -91,7 +91,7 @@ function varint(n) { const o = []; while (n > 127) { o.push((n & 127) | 128); n 
 function ld(f, b) { return [...varint((f << 3) | 2), ...varint(b.length), ...b]; }
 function str(f, s) { return ld(f, Array.from(new TextEncoder().encode(s))); }
 function vi(f, v) { return [...varint(f << 3), ...varint(v)]; }
-function tfs(legs, trip) { let o = []; for (const [d, a, b] of legs) o.push(...ld(3, [...str(2, d), ...ld(13, str(2, a)), ...ld(14, str(2, b))])); o.push(...vi(8, 1), ...vi(9, 1), ...vi(19, trip)); return btoa(String.fromCharCode(...o)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function tfs(legs, trip) { let o = []; for (const [d, a, b] of legs) o.push(...ld(3, [...str(2, d), ...ld(13, [...vi(1, 1), ...str(2, a)]), ...ld(14, [...vi(1, 1), ...str(2, b)])])); o.push(...vi(8, 1), ...vi(9, 1), ...vi(19, trip)); return btoa(String.fromCharCode(...o)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
 function botoes(legs, multi) {
   const [i, v] = legs, yy = (d) => d.slice(2).replace(/-/g, "");
   const path = multi ? `${i[1]}-${i[2]}/${i[0]}/${v[1]}-${v[2]}/${v[0]}` : `${i[1]}-${i[2]}/${i[0]}/${v[0]}`;
