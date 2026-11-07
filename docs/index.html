@@ -159,7 +159,8 @@ function render(D, alertas) {
 
   h += '<section class="sec"><h2>Alertas do seu e-mail</h2><div class="card">';
   if (!C.alertasUrl) h += '<p class="small muted">Ainda não conectado. Quando estiver, aparecem aqui os alertas de preço que Kayak, Momondo, Skyscanner e Google mandarem para o seu Gmail.</p>';
-  else if (!alertas) h += '<p class="small muted">Não consegui ler os alertas agora. Recarregue a página.</p>';
+  else if (alertas === "carregando") h += '<p class="small muted">Lendo os alertas do seu e-mail…</p>';
+  else if (!alertas) h += '<p class="small muted">O Gmail demorou para responder. Recarregue a página em alguns segundos.</p>';
   else if (!alertas.itens.length) h += '<p class="small muted">Nenhum alerta de passagem para a China nos últimos 60 dias. Eles começam quando as datas abrirem e você criar os alertas.</p>';
   else h += alertas.itens.slice(0, 12).map((a) => `<a class="alerta" href="${esc(a.link)}" target="_blank" rel="noopener"><span class="pill">${esc(a.fonte)}</span><span class="as">${esc(a.assunto)}</span><span class="vl">${a.menorPreco ? fmt(a.menorPreco) : ""}</span><span class="qd">${quando(a.quando)} · confira as conexões antes de comprar</span></a>`).join("");
   h += "</div></section>";
@@ -194,8 +195,13 @@ function grafico(series, teto) {
   let D;
   try { D = await fetch("dados.json?" + Date.now()).then((r) => r.json()); } catch { document.getElementById("app").innerHTML = '<p class="muted">Não consegui carregar os preços. Recarregue a página.</p>'; return; }
   if (!D.config) { document.getElementById("app").innerHTML = '<div class="hero"><h1>Radar China</h1><p class="muted">A primeira busca ainda não rodou.</p></div>'; return; }
+  if (!D.config.alertasUrl) { render(D, null); return; }
+  render(D, "carregando");
+  for (let i = 0; i < 3; i++) {
+    try { const a = await fetch(D.config.alertasUrl).then((r) => r.json()); if (a && Array.isArray(a.itens)) { render(D, a); return; } } catch {}
+    await new Promise((ok) => setTimeout(ok, 2000));
+  }
   render(D, null);
-  if (D.config.alertasUrl) { try { const a = await fetch(D.config.alertasUrl).then((r) => r.json()); render(D, a); } catch { render(D, null); } }
 })();
 </script>
 </body>
