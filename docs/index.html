@@ -97,7 +97,7 @@ function status(b, teto) {
   if (!b) return '<span class="pill">– Sem busca ainda</span>';
   if (b.fechada) return `<span class="pill">Datas fechadas no Google até ${dmy(b.abre)}</span>`;
   if (b.erro) return '<span class="pill warn">! Erro na última busca</span>';
-  if (!b.melhor) return '<span class="pill">– Nenhum voo que sirva</span>';
+  if (!b.melhor) return b.fonte === "Aviasales" ? '<span class="pill">– Sem preço nessas datas ainda</span>' : '<span class="pill">– Nenhum voo que sirva</span>';
   if (b.tipo === "ref") return '<span class="pill">Referência</span>';
   const p = b.melhor.preco;
   if (p > teto) return '<span class="pill bad">▲ Acima do teto</span>';
@@ -155,7 +155,7 @@ function render(D) {
   const diasPrazo = Math.round((new Date(C.prazoPrincipal + "T12:00:00") - new Date()) / 864e5);
   let h = `<header class="card pass"><div><span class="eyebrow">China 2027 · 1 adulto · econômica · sem conexão que exige visto</span><h1>Radar China</h1>`;
   if (melhor) h += `<span class="det">Menor bilhete principal agora · ${esc(melhor.rotulo || melhor.nomeJ)}</span><span class="figure">${fmt(melhor.melhor.preco)}</span><div class="row">${status(melhor, C.tetoPrincipal)}<span class="det">${esc(melhor.melhor.cia || "")}</span></div>`;
-  else h += `<span class="figure" style="font-size:clamp(26px,6vw,34px)">Sem preço ainda</span><p class="det">O Google abre as datas de outubro de 2027 por volta do fim de novembro de 2026. Até lá, a Aviasales pode mostrar alguns preços.</p>`;
+  else h += `<span class="figure" style="font-size:clamp(26px,6vw,34px)">Sem preço ainda</span><p class="det">O Google abre cada janela cerca de 329 dias antes da ida: a Janela 1 por volta de 16/11/2026. Até lá, a Aviasales pode mostrar alguns preços.</p>`;
   h += `<div class="row"><a class="btn primary" href="${acoesUrl()}" target="_blank" rel="noopener">Buscar agora</a><span class="det">Abre o GitHub: toque em "Run workflow".</span></div></div>`;
   h += `<div><div><span class="det">Última busca</span><br><b>${D.atualizado ? quando(D.atualizado) : "ainda não rodou"}</b></div><div><span class="det">Buscas no Google restantes no mês</span><br><b class="num">${D.cotaGoogle ?? "?"} de 250</b></div><div><span class="det">Teto do bilhete principal</span><br><b>${fmt(C.tetoPrincipal)}</b></div><div><span class="det">Teto THE ⇄ São Paulo</span><br><b>${fmt(C.tetoThe)}</b></div><div><span class="det">Prazo para comprar o principal</span><br><b>${dmy(C.prazoPrincipal)} · ${diasPrazo >= 0 ? "faltam " + diasPrazo + " dias" : "vencido"}</b></div></div></header>`;
 
