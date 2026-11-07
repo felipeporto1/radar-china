@@ -4,7 +4,9 @@
  * Só lê. Não apaga, não responde, não muda nada no Gmail.
  */
 const BUSCA = 'newer_than:60d (from:kayak OR from:momondo OR from:skyscanner OR from:google.com OR from:aviasales OR from:trip.com)';
-const CHINA = /(pequim|beijing|peking|\bPEK\b|\bPKX\b|\bBJS\b|hong ?kong|\bHKG\b|china|teresina|\bTHE\b)/i;
+const CHINA = /(pequim|beijing|peking|hong ?kong|china|teresina|s[aã]o paulo)/i;
+const IATA = /\b(PEK|PKX|BJS|HKG|THE|GRU|SAO)\b/;
+const FORA = /(seguran[cç]a|security|senha|password|verifica[cç][aã]o|login)/i;
 const VOO = /(voo|voos|flight|passage|tarifa|fare|pre[cç]o|price|alerta|alert)/i;
 
 function fonteDe(de) {
@@ -26,12 +28,16 @@ function lerAlertas() {
     if (!fonte) continue;
     const assunto = m.getSubject() || '';
     const corpo = (m.getPlainBody() || '').slice(0, 30000);
-    if (!VOO.test(assunto) && !VOO.test(corpo.slice(0, 2000))) continue;
-    if (!CHINA.test(assunto + ' ' + corpo)) continue;
+    if (FORA.test(assunto)) continue;
+    if (!/R\$/.test(assunto) && !/(pre[cç]o|price|alerta|alert|tarifa)/i.test(assunto)) continue;
+    if (!VOO.test(assunto) && !(fonte !== 'Google Voos' && VOO.test(corpo.slice(0, 2000)))) continue;
+    if (!CHINA.test(assunto + ' ' + corpo) && !IATA.test(assunto + ' ' + corpo)) continue;
     const precos = [];
     const re = /R\$\s?(\d{1,3}(?:\.\d{3})+|\d{3,6})(?:,\d{2})?/g;
+    const noAssunto = re.exec(assunto);
+    re.lastIndex = 0;
     let x;
-    while ((x = re.exec(assunto + ' ' + corpo)) !== null) {
+    while ((x = re.exec(noAssunto ? assunto : assunto + ' ' + corpo)) !== null) {
       const v = Number(x[1].replace(/\./g, ''));
       if (v >= 300 && v <= 60000) precos.push(v);
     }
@@ -39,7 +45,7 @@ function lerAlertas() {
       fonte: fonte,
       assunto: assunto.slice(0, 160),
       quando: m.getDate().toISOString(),
-      menorPreco: precos.length ? Math.min.apply(null, precos) : null,
+      menorPreco: precos.length ? (noAssunto ? precos[0] : Math.min.apply(null, precos)) : null,
       link: 'https://mail.google.com/mail/u/0/#all/' + t.getId()
     });
   }
