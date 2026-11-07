@@ -82,7 +82,9 @@ async function buscarGoogle(t) {
 async function tp(path, params) {
   if (MOCK) return JSON.parse(await fs.readFile(`${MOCK}/tp.json`, "utf8"));
   const r = await fetch(`https://api.travelpayouts.com${path}?` + new URLSearchParams({ ...params, currency: "brl", market: "br", token: TP }), { headers: { "Accept-Encoding": "gzip, deflate" } });
-  return r.json();
+  const j = await r.json().catch(() => ({ success: false, error: "resposta inválida (" + r.status + ")" }));
+  if (j.success === false || j.error) throw new Error(String(j.error || j.message || r.status));
+  return j;
 }
 function itemAviasales(x) {
   return {
@@ -156,6 +158,13 @@ for (const t of lista) {
 }
 
 if (TP || MOCK) {
+  try {
+    const prox = addDias(hoje, 40).slice(0, 7);
+    const j = await tp("/aviasales/v3/prices_for_dates", { origin: "SAO", destination: "BJS", departure_at: prox, one_way: "false", sorting: "price", limit: "3" });
+    const it = (j.data || [])[0];
+    dados.aviasalesTeste = { quando: agora.toISOString(), ok: true, exemplo: it ? `São Paulo⇄Pequim saindo em ${prox}: a partir de ${fmt(it.price)}` : `sem preços para ${prox}` };
+    log.push("Aviasales conectada. " + dados.aviasalesTeste.exemplo + ".");
+  } catch (e) { dados.aviasalesTeste = { quando: agora.toISOString(), ok: false, erro: String(e.message).slice(0, 160) }; log.push("Aviasales com erro: " + dados.aviasalesTeste.erro); }
   for (const w of J) {
     const pares = [
       { id: `${w.k}-pek`, tipo: "ref", o: "SAO", d: "BJS", ida: w.ida, volta: w.voltaRef, rotulo: `${w.nome}, São Paulo⇄Pequim` },
