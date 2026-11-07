@@ -127,7 +127,7 @@ function render(D, alertas) {
     h += `<span class="small muted">Melhor ida e volta Brasil ⇄ China agora</span><span class="big">${fmt(b.melhor.preco)}</span>`;
     h += `<div class="row">${chip(b.melhor.preco, C.tetoPrincipal, b.melhorJa)}<span class="small">${esc(w.nome)} · ida ${dm(b.legs[0][0])}, volta ${dm(b.legs[1][0])}${b.melhor.cia ? " · " + esc(b.melhor.cia) : ""}</span></div>`;
   } else {
-    const abre = addDias(C.janelas[0].ida, -abreN), n = diasAte(abre);
+    const abre = addDias(C.janelas[0].volta, -abreN), n = diasAte(abre);
     h += `<span class="small muted">Melhor ida e volta Brasil ⇄ China agora</span><span class="big" style="font-size:clamp(30px,8vw,42px)">Ainda sem preço</span>`;
     h += `<p class="small muted">${n > 0 ? `O Google abre a Janela 1 por volta de ${dmy(abre)}, em ${n} ${n === 1 ? "dia" : "dias"}.` : "As datas já devem estar abertas. A próxima busca deve trazer preços."}</p>`;
   }
@@ -136,7 +136,7 @@ function render(D, alertas) {
   h += '<section class="sec"><h2>Janelas</h2><div class="grid">';
   for (const w of C.janelas) {
     const b = melhorJan(w), multi = get(`${w.k}-multi`, "Google Voos");
-    const abre = addDias(w.ida, -abreN), fechada = diasAte(abre) > 0;
+    const abre = addDias(w.volta, -abreN), fechada = diasAte(abre) > 0;
     const the = [get(`${w.k}-the`, "Google Voos"), get(`${w.k}-the`, "Aviasales")].filter((x) => x && x.melhor).sort((a, c) => a.melhor.preco - c.melhor.preco)[0];
     h += `<article class="jan"><div class="nome"><i style="background:var(${CORES[w.k]})"></i>${esc(w.nome)}</div><div class="datas">Ida ${dm(w.ida)} · volta ${dm(w.volta)} · ${esc(w.tag)}</div>`;
     if (b) h += `<div class="preco">${fmt(b.melhor.preco)}</div><div class="row">${chip(b.melhor.preco, C.tetoPrincipal, b.melhorJa)}${b.tipo === "flex" ? `<span class="pill">datas ${dm(b.legs[0][0])}–${dm(b.legs[1][0])}</span>` : ""}</div>`;
