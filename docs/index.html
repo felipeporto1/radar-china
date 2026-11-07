@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Radar China</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: cartão de embarque com o melhor preço, depois uma faixa por janela, datas baratas e registro. Coluna única até 980px. */
+:root {
+  --bg: #edf3f0; --surface: #fbfdfc; --raised: #f3f8f5; --ink: #10211c; --muted: #55665f; --line: #d5dfda;
+  --accent: #0b6e5b; --accent-ink: #fff; --accent-soft: #d9ede6;
+  --good: #1f7a3d; --good-soft: #dff1e4; --warn: #8a5a00; --warn-soft: #f8ecd3; --bad: #b93a2b; --bad-soft: #f9e4e0;
+  --s1: #2a78d6; --s2: #e87ba4; --s3: #eda100; --s4: #1baf7a; --grid: #e2e9e5;
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif; --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif; --mono: "DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #0c1412; --surface: #141f1c; --raised: #1a2824; --ink: #e9f1ee; --muted: #a2b3ac; --line: #2a3a35;
+  --accent: #4cc9a8; --accent-ink: #06201a; --accent-soft: #15352c;
+  --good: #62c98a; --good-soft: #15301f; --warn: #e5b34d; --warn-soft: #33280f; --bad: #f0806f; --bad-soft: #3a1c18;
+  --s1: #3987e5; --s2: #d55181; --s3: #c98500; --s4: #199e70; --grid: #22312c; color-scheme: dark;
+} }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); }
+#app { max-width: 980px; margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 56px max(16px, env(safe-area-inset-left)); display: grid; gap: 26px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.015em; text-wrap: balance; }
+h1 { font-size: clamp(28px, 6vw, 38px); } h2 { font-size: 21px; } h3 { font-size: 18px; }
+.num { font-variant-numeric: tabular-nums; } .muted { color: var(--muted); } .small { font-size: 13px; }
+.eyebrow { font: 600 12px var(--mono); letter-spacing: .05em; color: var(--muted); text-transform: uppercase; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
+.pass { display: grid; grid-template-columns: minmax(0, 1fr); }
+.pass > div { padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.pass > div + div { border-top: 2px dashed var(--line); }
+@media (min-width: 760px) { .pass { grid-template-columns: minmax(0, 1fr) 280px; } .pass > div + div { border-top: 0; border-left: 2px dashed var(--line); } }
+.figure { font: 600 clamp(36px, 9vw, 54px)/1 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.pill { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 600; background: var(--raised); color: var(--muted); white-space: nowrap; }
+.good { background: var(--good-soft); color: var(--good); } .ok { background: var(--accent-soft); color: var(--accent); } .warn { background: var(--warn-soft); color: var(--warn); } .bad { background: var(--bad-soft); color: var(--bad); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { display: inline-flex; align-items: center; min-height: 38px; padding: 6px 12px; border-radius: 7px; border: 1px solid var(--line); background: var(--raised); color: var(--ink); font: 500 13.5px var(--body); text-decoration: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.jan-top { padding: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; border-bottom: 1px solid var(--line); }
+.linha { padding: 12px 16px; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+.linha:last-child { border-bottom: 0; }
+.rota { font: 500 14.5px var(--mono); }
+.preco { font: 600 20px var(--display); font-variant-numeric: tabular-nums; }
+.det { font-size: 13px; color: var(--muted); }
+.flex { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.flex div { background: var(--raised); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+svg { display: block; width: 100%; height: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+td, th { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; color: var(--muted); font-size: 12px; }
+.scroll { overflow-x: auto; }
+details summary { cursor: pointer; font-weight: 600; }
+a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div id="app"><p class="muted">Carregando preços…</p></div>
+<script>
+"use strict";
+const fmt = (v) => "R$ " + Math.round(v).toLocaleString("pt-BR");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const dm = (s) => s ? s.slice(8, 10) + "/" + s.slice(5, 7) : "";
+const dmy = (s) => s ? s.slice(8, 10) + "/" + s.slice(5, 7) + "/" + s.slice(0, 4) : "";
+function quando(isoS) { const n = Math.floor((Date.now() - new Date(isoS)) / 36e5); return n < 1 ? "agora há pouco" : n < 24 ? `há ${n} h` : `há ${Math.floor(n / 24)} dias`; }
+const horas = (m) => m ? `${Math.floor(m / 60)}h${String(m % 60).padStart(2, "0")}` : "";
+const CORES = { A: "--s1", B: "--s2", C: "--s3", D: "--s4" };
+
+/* Links para conferir à mão */
+function varint(n) { const o = []; while (n > 127) { o.push((n & 127) | 128); n >>>= 7; } o.push(n); return o; }
+function ld(f, b) { return [...varint((f << 3) | 2), ...varint(b.length), ...b]; }
+function str(f, s) { return ld(f, Array.from(new TextEncoder().encode(s))); }
+function vi(f, v) { return [...varint(f << 3), ...varint(v)]; }
+function tfs(legs, trip) { let o = []; for (const [d, a, b] of legs) o.push(...ld(3, [...str(2, d), ...ld(13, str(2, a)), ...ld(14, str(2, b))])); o.push(...vi(8, 1), ...vi(9, 1), ...vi(19, trip)); return btoa(String.fromCharCode(...o)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function links(legs, multi) {
+  const [i, v] = legs, yy = (d) => d.slice(2).replace(/-/g, "");
+  const g = "https://www.google.com/travel/flights/search?tfs=" + tfs(legs, multi ? 3 : 1) + "&hl=pt-BR&gl=BR&curr=BRL";
+  const path = multi ? `${i[1]}-${i[2]}/${i[0]}/${v[1]}-${v[2]}/${v[0]}` : `${i[1]}-${i[2]}/${i[0]}/${v[0]}`;
+  const l = [["Google Voos", g], ["Kayak", `https://www.kayak.com.br/flights/${path}?sort=price_a`], ["Momondo", `https://www.momondo.com.br/flight-search/${path}?sort=price_a`]];
+  if (!multi) l.push(["Skyscanner", `https://www.skyscanner.com.br/transporte/passagens-aereas/${i[1].toLowerCase()}/${i[2].toLowerCase()}/${yy(i[0])}/${yy(v[0])}/`]);
+  l.push(["Trip.com", "https://br.trip.com/flights/"], ["Aviasales", "https://www.aviasales.com/"]);
+  return '<div class="row">' + l.map(([n, u]) => `<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join("") + "</div>";
+}
+function acoesUrl() {
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/); const repo = location.pathname.split("/").filter(Boolean)[0];
+  return m && repo ? `https://github.com/${m[1]}/${repo}/actions/workflows/buscar.yml` : "https://github.com";
+}
+
+function status(b, teto) {
+  if (!b) return '<span class="pill">– Sem busca ainda</span>';
+  if (b.fechada) return `<span class="pill">Datas fechadas no Google até ${dmy(b.abre)}</span>`;
+  if (b.erro) return '<span class="pill warn">! Erro na última busca</span>';
+  if (!b.melhor) return '<span class="pill">– Nenhum voo que sirva</span>';
+  if (b.tipo === "ref") return '<span class="pill">Referência</span>';
+  const p = b.melhor.preco;
+  if (p > teto) return '<span class="pill bad">▲ Acima do teto</span>';
+  if (b.melhorJa != null && p <= b.melhorJa) return '<span class="pill good">✓ Menor preço já visto</span>';
+  return '<span class="pill ok">● Dentro do teto</span>';
+}
+function nivel(ins) {
+  if (!ins || !ins.nivel) return "";
+  const t = { low: ["good", "Google acha baixo"], typical: ["", "Google acha normal"], high: ["bad", "Google acha alto"] }[ins.nivel] || ["", ins.nivel];
+  return ` <span class="pill ${t[0]}">${t[1]}</span>` + (ins.faixaTipica ? ` <span class="det">faixa comum ${fmt(ins.faixaTipica[0])} a ${fmt(ins.faixaTipica[1])}</span>` : "");
+}
+function linha(b, titulo, teto, legs, multi) {
+  let h = `<div class="linha"><div class="row" style="justify-content:space-between"><span class="rota">${esc(titulo)}</span><span class="det">${b ? esc(b.fonte) + " · " + quando(b.quando) : ""}</span></div>`;
+  if (b && b.melhor) {
+    const m = b.melhor;
+    h += `<div class="row"><span class="preco">${fmt(m.preco)}</span>${status(b, teto)}${nivel(b.insights)}</div>`;
+    h += `<p class="det">${esc([m.cia, m.escalas != null ? m.escalas + (m.escalas === 1 ? " escala" : " escalas") : "", m.duracaoMin ? horas(m.duracaoMin) : "", m.ida && m.volta ? dm(m.ida) + " a " + dm(m.volta) : ""].filter(Boolean).join(" · "))}</p>`;
+    if (m.conexoes && m.conexoes.length) h += `<p class="det">Conexões da ida: ${esc(m.conexoes.join(", "))}</p>`;
+    if (b.descartados) h += `<p class="det">${b.descartados} ${b.descartados === 1 ? "opção mais barata descartada" : "opções descartadas"} por conexão que exige visto.</p>`;
+    if (m.aviso) h += `<p class="det">${esc(m.aviso)}</p>`;
+    if (m.link) h += `<p class="small"><a href="${esc(m.link)}" target="_blank" rel="noopener">Ver esta oferta na Aviasales</a></p>`;
+  } else h += `<div class="row">${status(b, teto)}${b && b.erro ? `<span class="det">${esc(b.erro)}</span>` : ""}</div>`;
+  if (b && b.melhorJa && !(b.melhor && b.melhor.preco === b.melhorJa)) h += `<p class="det">Menor já visto: ${fmt(b.melhorJa)}</p>`;
+  if (legs) h += links(legs, multi);
+  return h + "</div>";
+}
+function grafico(D) {
+  const series = D.config.janelas.map((w) => ({ w, pts: (D.historico[`${w.k}-multi|Google Voos`] || []).map((h) => ({ t: new Date(h.d + "T12:00:00Z").getTime(), v: h.p })) }));
+  const todos = series.flatMap((s) => s.pts);
+  if (!todos.length) return '<p class="det" style="padding:20px 4px">O gráfico aparece depois das primeiras buscas com preço.</p>';
+  const W = Math.max(320, Math.min(900, (document.getElementById("app").clientWidth || 700) - 30)), H = W < 500 ? 220 : 250, m = { l: 60, r: 56, t: 10, b: 26 }, teto = D.config.tetoPrincipal;
+  let lo = Math.min(...todos.map((p) => p.v)), hi = Math.max(...todos.map((p) => p.v), teto);
+  lo = Math.floor((lo - 300) / 500) * 500; hi = Math.ceil((hi + 300) / 500) * 500;
+  let t0 = Math.min(...todos.map((p) => p.t)), t1 = Math.max(...todos.map((p) => p.t)); if (t1 - t0 < 2 * 864e5) { t0 -= 864e5; t1 += 864e5; }
+  const X = (t) => m.l + (t - t0) / (t1 - t0) * (W - m.l - m.r), Y = (v) => m.t + (hi - v) / (hi - lo) * (H - m.t - m.b);
+  const passo = (hi - lo) > 4000 ? 1000 : 500;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Preço do bilhete principal ao longo do tempo">`;
+  for (let v = lo; v <= hi; v += passo) s += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${m.l - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${(v / 1000).toLocaleString("pt-BR")} mil</text>`;
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(teto)}" y2="${Y(teto)}" stroke="var(--muted)" stroke-dasharray="5 4"/><text x="${W - m.r + 5}" y="${Y(teto) + 4}" font-size="11" fill="var(--muted)">Teto</text>`;
+  for (let i = 0; i <= 3; i++) { const t = t0 + (t1 - t0) * i / 3, d = new Date(t); s += `<text x="${X(t)}" y="${H - 6}" font-size="11" fill="var(--muted)" text-anchor="${i === 0 ? "start" : i === 3 ? "end" : "middle"}">${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}</text>`; }
+  for (const se of series) {
+    if (!se.pts.length) continue;
+    if (se.pts.length > 1) s += `<polyline fill="none" stroke="var(${CORES[se.w.k]})" stroke-width="2" points="${se.pts.map((p) => X(p.t) + "," + Y(p.v)).join(" ")}"/>`;
+    const u = se.pts[se.pts.length - 1]; s += `<circle cx="${X(u.t)}" cy="${Y(u.v)}" r="4.5" fill="var(${CORES[se.w.k]})" stroke="var(--surface)" stroke-width="2"/>`;
+  }
+  return s + "</svg>" + '<div class="row small muted">' + series.map((se) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(${CORES[se.w.k]});margin-right:5px"></i>${esc(se.w.nome)}</span>`).join("") + "</div>";
+}
+
+function render(D) {
+  const C = D.config, B = D.buscas || {};
+  const get = (id, f) => B[`${id}|${f}`];
+  const principais = C.janelas.map((w) => ({ w, b: get(`${w.k}-multi`, "Google Voos") })).filter((x) => x.b && x.b.melhor).sort((a, b) => a.b.melhor.preco - b.b.melhor.preco);
+  const flexAll = Object.values(B).filter((b) => b.tipo === "flex" && b.melhor).sort((a, b) => a.melhor.preco - b.melhor.preco);
+  const melhor = [...principais.map((x) => ({ ...x.b, nomeJ: x.w.nome })), ...flexAll.map((b) => ({ ...b, nomeJ: "Datas próximas" }))].sort((a, b) => a.melhor.preco - b.melhor.preco)[0];
+  const diasPrazo = Math.round((new Date(C.prazoPrincipal + "T12:00:00") - new Date()) / 864e5);
+  let h = `<header class="card pass"><div><span class="eyebrow">China 2027 · 1 adulto · econômica · sem conexão que exige visto</span><h1>Radar China</h1>`;
+  if (melhor) h += `<span class="det">Menor bilhete principal agora · ${esc(melhor.rotulo || melhor.nomeJ)}</span><span class="figure">${fmt(melhor.melhor.preco)}</span><div class="row">${status(melhor, C.tetoPrincipal)}<span class="det">${esc(melhor.melhor.cia || "")}</span></div>`;
+  else h += `<span class="figure" style="font-size:clamp(26px,6vw,34px)">Sem preço ainda</span><p class="det">O Google abre as datas de outubro de 2027 por volta do fim de novembro de 2026. Até lá, a Aviasales pode mostrar alguns preços.</p>`;
+  h += `<div class="row"><a class="btn primary" href="${acoesUrl()}" target="_blank" rel="noopener">Buscar agora</a><span class="det">Abre o GitHub: toque em "Run workflow".</span></div></div>`;
+  h += `<div><div><span class="det">Última busca</span><br><b>${D.atualizado ? quando(D.atualizado) : "ainda não rodou"}</b></div><div><span class="det">Buscas no Google restantes no mês</span><br><b class="num">${D.cotaGoogle ?? "?"} de 250</b></div><div><span class="det">Teto do bilhete principal</span><br><b>${fmt(C.tetoPrincipal)}</b></div><div><span class="det">Teto THE ⇄ São Paulo</span><br><b>${fmt(C.tetoThe)}</b></div><div><span class="det">Prazo para comprar o principal</span><br><b>${dmy(C.prazoPrincipal)} · ${diasPrazo >= 0 ? "faltam " + diasPrazo + " dias" : "vencido"}</b></div></div></header>`;
+
+  h += `<section style="display:grid;gap:10px"><h2>Bilhete principal ao longo do tempo</h2><div class="card" style="padding:14px">${grafico(D)}</div></section>`;
+
+  h += `<section style="display:grid;gap:12px"><div><h2>Janelas</h2><p class="det">Brasil ⇄ China primeiro: é a passagem mais cara. THE ⇄ São Paulo depois.</p></div>`;
+  for (const w of C.janelas) {
+    const multi = get(`${w.k}-multi`, "Google Voos");
+    const flex = Object.values(B).filter((b) => b.tipo === "flex" && b.janela === w.k && b.fonte === "Google Voos").sort((a, b) => (a.melhor?.preco ?? 1e9) - (b.melhor?.preco ?? 1e9));
+    h += `<article class="card"><div class="jan-top"><div><span class="eyebrow" style="color:var(${CORES[w.k]})">● ${esc(w.tag)}</span><h3>${esc(w.nome)}: ${dm(w.ida)} a ${dm(w.volta)}</h3></div></div>`;
+    h += linha(multi, `Bilhete principal · GRU → PEK ${dm(w.ida)} + HKG → GRU ${dm(w.volta)}`, C.tetoPrincipal, [[w.ida, "GRU", "PEK"], [w.volta, "HKG", "GRU"]], true);
+    if (flex.length) h += `<div class="linha"><span class="rota">Datas próximas (Google Voos)</span><div class="flex">${flex.map((b) => `<div><b class="num">${b.melhor ? fmt(b.melhor.preco) : b.fechada ? "fechada" : "–"}</b><br><span class="det">${dm(b.legs[0][0])} a ${dm(b.legs[1][0])} · ${quando(b.quando)}</span></div>`).join("")}</div></div>`;
+    h += linha(get(`${w.k}-pek`, "Aviasales"), `São Paulo ⇄ Pequim · ${dm(w.ida)} e ${dm(w.voltaRef)} · referência`, C.tetoPrincipal, null);
+    h += linha(get(`${w.k}-hkg`, "Aviasales"), `São Paulo ⇄ Hong Kong · ${dm(w.ida)} e ${dm(w.voltaRef)} · referência`, C.tetoPrincipal, null);
+    for (const f of ["Google Voos", "Aviasales"]) { const b = get(`${w.k}-the`, f); if (b || f === "Google Voos") h += linha(b, `THE ⇄ São Paulo · ${dm(w.theIda)} e ${dm(w.theVolta)}`, C.tetoThe, f === "Google Voos" ? [[w.theIda, "THE", "GRU"], [w.theVolta, "GRU", "THE"]] : null, false); }
+    h += "</article>";
+  }
+  h += "</section>";
+
+  const meses = Object.values(D.datasBaratas || {}).filter((x) => x.itens && x.itens.length);
+  h += `<section style="display:grid;gap:10px"><div><h2>Datas mais baratas (Aviasales)</h2><p class="det">Ida e volta em outubro e novembro de 2027, de buscas recentes de outras pessoas. Bom para descobrir datas melhores.</p></div><div class="card scroll">`;
+  h += meses.length ? `<table><thead><tr><th>Rota</th><th>Ida</th><th>Volta</th><th>Preço</th><th>Cia</th><th>Escalas</th><th></th></tr></thead><tbody>${meses.flatMap((x) => x.itens.map((i) => `<tr><td>${esc(x.rota)}</td><td class="num">${dm(i.ida)}</td><td class="num">${dm(i.volta)}</td><td class="num"><b>${fmt(i.preco)}</b></td><td>${esc(i.cia)}</td><td class="num">${i.escalas}</td><td>${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener">abrir</a>` : ""}</td></tr>`)).join("")}</tbody></table>` : '<p class="det" style="padding:14px">Ainda sem dados para essas datas.</p>';
+  h += `</div></section>`;
+
+  h += `<section class="card" style="padding:16px;display:grid;gap:8px"><h2>Regras</h2><ul class="small" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Voos com conexão nos EUA, Canadá, México, Austrália ou Nova Zelândia são descartados: exigem visto ou autorização que o Guilherme não tem.</li><li>Conexão no Reino Unido ou na Índia aparece com aviso: só serve se não precisar sair da área de trânsito.</li><li>A Aviasales não informa onde são as conexões. Confira antes de comprar.</li><li>Antes de comprar, confira no site da companhia o preço final e a mala de 23 kg.</li></ul></section>`;
+  if (D.log && D.log.length) h += `<details class="card" style="padding:14px 16px"><summary>O que a última busca fez</summary><ul class="small muted">${D.log.map((l) => `<li>${esc(l)}</li>`).join("")}</ul></details>`;
+  document.getElementById("app").innerHTML = h;
+}
+fetch("dados.json?" + Date.now()).then((r) => r.json()).then((d) => {
+  if (!d.config) { document.getElementById("app").innerHTML = '<div class="card" style="padding:18px"><h1>Radar China</h1><p class="muted">A primeira busca ainda não rodou. Abra o GitHub, vá em Actions e toque em "Run workflow".</p></div>'; return; }
+  render(d);
+}).catch(() => { document.getElementById("app").innerHTML = '<p class="muted">Não consegui carregar os preços. Recarregue a página.</p>'; });
+</script>
+</body>
+</html>
