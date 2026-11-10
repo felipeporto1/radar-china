@@ -20,7 +20,7 @@
    ],
    "fechada": true,
    "abre": "2026-11-24",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "melhorJa": null
   },
   "B-multi|Google Voos": {
@@ -43,7 +43,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-01",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "melhorJa": null
   },
   "C-multi|Google Voos": {
@@ -66,7 +66,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-08",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "melhorJa": null
   },
   "D-multi|Google Voos": {
@@ -89,7 +89,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-22",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "melhorJa": null
   },
   "D-flex_2027-11-07_2027-11-16|Google Voos": {
@@ -187,7 +187,7 @@
   "A-pek|Aviasales": {
    "id": "A-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "A",
    "rotulo": "Janela 1, São Paulo⇄Pequim",
@@ -209,7 +209,7 @@
   "A-hkg|Aviasales": {
    "id": "A-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "A",
    "rotulo": "Janela 1, São Paulo⇄Hong Kong",
@@ -231,7 +231,7 @@
   "A-the|Aviasales": {
    "id": "A-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "the",
    "janela": "A",
    "rotulo": "Janela 1, THE⇄São Paulo",
@@ -253,7 +253,7 @@
   "B-pek|Aviasales": {
    "id": "B-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "B",
    "rotulo": "Janela 2, São Paulo⇄Pequim",
@@ -275,7 +275,7 @@
   "B-hkg|Aviasales": {
    "id": "B-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "B",
    "rotulo": "Janela 2, São Paulo⇄Hong Kong",
@@ -297,7 +297,7 @@
   "B-the|Aviasales": {
    "id": "B-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "the",
    "janela": "B",
    "rotulo": "Janela 2, THE⇄São Paulo",
@@ -319,7 +319,7 @@
   "C-pek|Aviasales": {
    "id": "C-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "C",
    "rotulo": "Janela 3, São Paulo⇄Pequim",
@@ -341,7 +341,7 @@
   "C-hkg|Aviasales": {
    "id": "C-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "C",
    "rotulo": "Janela 3, São Paulo⇄Hong Kong",
@@ -363,7 +363,7 @@
   "C-the|Aviasales": {
    "id": "C-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "the",
    "janela": "C",
    "rotulo": "Janela 3, THE⇄São Paulo",
@@ -385,7 +385,7 @@
   "D-pek|Aviasales": {
    "id": "D-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "D",
    "rotulo": "Janela 4, São Paulo⇄Pequim",
@@ -407,7 +407,7 @@
   "D-hkg|Aviasales": {
    "id": "D-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "ref",
    "janela": "D",
    "rotulo": "Janela 4, São Paulo⇄Hong Kong",
@@ -429,7 +429,7 @@
   "D-the|Aviasales": {
    "id": "D-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "tipo": "the",
    "janela": "D",
    "rotulo": "Janela 4, THE⇄São Paulo",
@@ -631,6 +631,98 @@
    "abre": "2026-12-23",
    "quando": "2026-11-09T20:45:41.238Z",
    "melhorJa": null
+  },
+  "D-flex_2027-11-06_2027-11-16|Google Voos": {
+   "id": "D-flex_2027-11-06_2027-11-16",
+   "fonte": "Google Voos",
+   "tipo": "flex",
+   "janela": "D",
+   "rotulo": "Janela 4 com datas próximas, GRU→PEK 06/11 + HKG→GRU 16/11",
+   "legs": [
+    [
+     "2027-11-06",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-16",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-22",
+   "quando": "2026-11-10T17:51:40.721Z",
+   "melhorJa": null
+  },
+  "D-flex_2027-11-08_2027-11-18|Google Voos": {
+   "id": "D-flex_2027-11-08_2027-11-18",
+   "fonte": "Google Voos",
+   "tipo": "flex",
+   "janela": "D",
+   "rotulo": "Janela 4 com datas próximas, GRU→PEK 08/11 + HKG→GRU 18/11",
+   "legs": [
+    [
+     "2027-11-08",
+     "GRU",
+     "PEK"
+    ],
+    [
+     "2027-11-18",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-24",
+   "quando": "2026-11-10T17:51:40.721Z",
+   "melhorJa": null
+  },
+  "D-the|Google Voos": {
+   "id": "D-the",
+   "fonte": "Google Voos",
+   "tipo": "the",
+   "janela": "D",
+   "rotulo": "Janela 4, THE⇄GRU 07/11 e 18/11",
+   "legs": [
+    [
+     "2027-11-07",
+     "THE",
+     "GRU"
+    ],
+    [
+     "2027-11-18",
+     "GRU",
+     "THE"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-24",
+   "quando": "2026-11-10T17:51:40.721Z",
+   "melhorJa": null
+  },
+  "D-hkg|Google Voos": {
+   "id": "D-hkg",
+   "fonte": "Google Voos",
+   "tipo": "ref",
+   "janela": "D",
+   "rotulo": "Janela 4, GRU⇄HKG (referência)",
+   "legs": [
+    [
+     "2027-11-08",
+     "GRU",
+     "HKG"
+    ],
+    [
+     "2027-11-17",
+     "HKG",
+     "GRU"
+    ]
+   ],
+   "fechada": true,
+   "abre": "2026-12-23",
+   "quando": "2026-11-10T17:51:40.721Z",
+   "melhorJa": null
   }
  },
  "historico": {
@@ -651,29 +743,29 @@
   "SAO-BJS-2027-10": {
    "rota": "São Paulo⇄Pequim",
    "mes": "2027-10",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "itens": []
   },
   "SAO-BJS-2027-11": {
    "rota": "São Paulo⇄Pequim",
    "mes": "2027-11",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "itens": []
   },
   "SAO-HKG-2027-10": {
    "rota": "São Paulo⇄Hong Kong",
    "mes": "2027-10",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "itens": []
   },
   "SAO-HKG-2027-11": {
    "rota": "São Paulo⇄Hong Kong",
    "mes": "2027-11",
-   "quando": "2026-11-09T20:45:41.238Z",
+   "quando": "2026-11-10T17:51:40.721Z",
    "itens": []
   }
  },
- "atualizado": "2026-11-09T20:45:41.238Z",
+ "atualizado": "2026-11-10T17:51:40.721Z",
  "cotaGoogle": 250,
  "config": {
   "tetoPrincipal": 8000,
@@ -725,11 +817,11 @@
   "alertasUrl": "https://script.google.com/macros/s/AKfycbze2lnXucmeyz7cG8g1qYrha5DEVQbVlfwip6JbVX5UJqRshcEK8GKcEgTXGp4FtY56/exec"
  },
  "log": [
-  "Aviasales conectada. São Paulo⇄Pequim saindo em 2026-12: a partir de R$ 9.589."
+  "Aviasales conectada. São Paulo⇄Pequim saindo em 2026-12: a partir de R$ 9.823."
  ],
  "aviasalesTeste": {
-  "quando": "2026-11-09T20:45:41.238Z",
+  "quando": "2026-11-10T17:51:40.721Z",
   "ok": true,
-  "exemplo": "São Paulo⇄Pequim saindo em 2026-12: a partir de R$ 9.589"
+  "exemplo": "São Paulo⇄Pequim saindo em 2026-12: a partir de R$ 9.823"
  }
 }
