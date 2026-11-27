@@ -3,7 +3,7 @@
   "A-multi|Google Voos": {
    "id": "A-multi",
    "fonte": "Google Voos",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "multi",
    "janela": "A",
    "rotulo": "Janela 1, GRU→PEK 11/10 + HKG→GRU 19/10",
@@ -21,17 +21,17 @@
    ],
    "fechada": false,
    "melhor": {
-    "preco": 9887,
-    "cia": "Air France",
+    "preco": 10495,
+    "cia": "Emirates",
     "escalas": 1,
     "conexoes": [
-     "Aeroporto de Paris-Charles de Gaulle (CDG)"
+     "Dubai International Airport (DXB)"
     ],
-    "duracaoMin": 2000,
+    "duracaoMin": 2025,
     "aviso": "Volta já filtrada pelo Google, mas confira as conexões da volta antes de comprar."
    },
    "descartados": 0,
-   "total": 10,
+   "total": 9,
    "insights": {
     "menorGoogle": null,
     "nivel": null,
@@ -59,7 +59,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-01",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "melhorJa": null
   },
   "C-multi|Google Voos": {
@@ -82,7 +82,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-08",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "melhorJa": null
   },
   "D-multi|Google Voos": {
@@ -105,7 +105,7 @@
    ],
    "fechada": true,
    "abre": "2026-12-22",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "melhorJa": null
   },
   "D-flex_2027-11-07_2027-11-16|Google Voos": {
@@ -157,6 +157,7 @@
   "A-the|Google Voos": {
    "id": "A-the",
    "fonte": "Google Voos",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "the",
    "janela": "A",
    "rotulo": "Janela 1, THE⇄GRU 10/10 e 21/10",
@@ -172,10 +173,26 @@
      "THE"
     ]
    ],
-   "fechada": true,
-   "abre": "2026-11-26",
-   "quando": "2026-11-23T22:03:36.904Z",
-   "melhorJa": null
+   "fechada": false,
+   "melhor": {
+    "preco": 1199,
+    "cia": "Gol",
+    "escalas": 2,
+    "conexoes": [
+     "Aeroporto Internacional de Brasília - Presidente Juscelino Kubitschek (BSB)",
+     "Aeroporto Internacional de João Pessoa - Presidente Castro Pinto (JPA)"
+    ],
+    "duracaoMin": 650,
+    "aviso": "Volta já filtrada pelo Google, mas confira as conexões da volta antes de comprar."
+   },
+   "descartados": 0,
+   "total": 8,
+   "insights": {
+    "menorGoogle": null,
+    "nivel": null,
+    "faixaTipica": null
+   },
+   "melhorJa": 1199
   },
   "C-pek|Google Voos": {
    "id": "C-pek",
@@ -203,7 +220,7 @@
   "A-pek|Aviasales": {
    "id": "A-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "A",
    "rotulo": "Janela 1, São Paulo⇄Pequim",
@@ -225,7 +242,7 @@
   "A-hkg|Aviasales": {
    "id": "A-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "A",
    "rotulo": "Janela 1, São Paulo⇄Hong Kong",
@@ -247,7 +264,7 @@
   "A-the|Aviasales": {
    "id": "A-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "the",
    "janela": "A",
    "rotulo": "Janela 1, THE⇄São Paulo",
@@ -269,7 +286,7 @@
   "B-pek|Aviasales": {
    "id": "B-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "B",
    "rotulo": "Janela 2, São Paulo⇄Pequim",
@@ -291,7 +308,7 @@
   "B-hkg|Aviasales": {
    "id": "B-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "B",
    "rotulo": "Janela 2, São Paulo⇄Hong Kong",
@@ -313,7 +330,7 @@
   "B-the|Aviasales": {
    "id": "B-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "the",
    "janela": "B",
    "rotulo": "Janela 2, THE⇄São Paulo",
@@ -335,7 +352,7 @@
   "C-pek|Aviasales": {
    "id": "C-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "C",
    "rotulo": "Janela 3, São Paulo⇄Pequim",
@@ -357,7 +374,7 @@
   "C-hkg|Aviasales": {
    "id": "C-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "C",
    "rotulo": "Janela 3, São Paulo⇄Hong Kong",
@@ -379,7 +396,7 @@
   "C-the|Aviasales": {
    "id": "C-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "the",
    "janela": "C",
    "rotulo": "Janela 3, THE⇄São Paulo",
@@ -401,7 +418,7 @@
   "D-pek|Aviasales": {
    "id": "D-pek",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "D",
    "rotulo": "Janela 4, São Paulo⇄Pequim",
@@ -423,7 +440,7 @@
   "D-hkg|Aviasales": {
    "id": "D-hkg",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "D",
    "rotulo": "Janela 4, São Paulo⇄Hong Kong",
@@ -445,7 +462,7 @@
   "D-the|Aviasales": {
    "id": "D-the",
    "fonte": "Aviasales",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "the",
    "janela": "D",
    "rotulo": "Janela 4, THE⇄São Paulo",
@@ -743,6 +760,7 @@
   "A-flex_2027-10-10_2027-10-19|Google Voos": {
    "id": "A-flex_2027-10-10_2027-10-19",
    "fonte": "Google Voos",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "flex",
    "janela": "A",
    "rotulo": "Janela 1 com datas próximas, GRU→PEK 10/10 + HKG→GRU 19/10",
@@ -758,14 +776,30 @@
      "GRU"
     ]
    ],
-   "fechada": true,
-   "abre": "2026-11-24",
-   "quando": "2026-11-11T17:54:18.247Z",
-   "melhorJa": null
+   "fechada": false,
+   "melhor": {
+    "preco": 10495,
+    "cia": "Emirates",
+    "escalas": 1,
+    "conexoes": [
+     "Dubai International Airport (DXB)"
+    ],
+    "duracaoMin": 2025,
+    "aviso": "Volta já filtrada pelo Google, mas confira as conexões da volta antes de comprar."
+   },
+   "descartados": 0,
+   "total": 10,
+   "insights": {
+    "menorGoogle": null,
+    "nivel": null,
+    "faixaTipica": null
+   },
+   "melhorJa": 10495
   },
   "A-flex_2027-10-12_2027-10-19|Google Voos": {
    "id": "A-flex_2027-10-12_2027-10-19",
    "fonte": "Google Voos",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "flex",
    "janela": "A",
    "rotulo": "Janela 1 com datas próximas, GRU→PEK 12/10 + HKG→GRU 19/10",
@@ -781,14 +815,30 @@
      "GRU"
     ]
    ],
-   "fechada": true,
-   "abre": "2026-11-24",
-   "quando": "2026-11-11T17:54:18.247Z",
-   "melhorJa": null
+   "fechada": false,
+   "melhor": {
+    "preco": 10537,
+    "cia": "Emirates",
+    "escalas": 1,
+    "conexoes": [
+     "Dubai International Airport (DXB)"
+    ],
+    "duracaoMin": 1610,
+    "aviso": "Volta já filtrada pelo Google, mas confira as conexões da volta antes de comprar."
+   },
+   "descartados": 0,
+   "total": 6,
+   "insights": {
+    "menorGoogle": null,
+    "nivel": null,
+    "faixaTipica": null
+   },
+   "melhorJa": 10537
   },
   "A-pek|Google Voos": {
    "id": "A-pek",
    "fonte": "Google Voos",
+   "quando": "2026-11-27T19:29:08.694Z",
    "tipo": "ref",
    "janela": "A",
    "rotulo": "Janela 1, GRU⇄PEK (referência)",
@@ -804,10 +854,25 @@
      "GRU"
     ]
    ],
-   "fechada": true,
-   "abre": "2026-11-25",
-   "quando": "2026-11-19T18:59:38.014Z",
-   "melhorJa": null
+   "fechada": false,
+   "melhor": {
+    "preco": 9235,
+    "cia": "Emirates",
+    "escalas": 1,
+    "conexoes": [
+     "Dubai International Airport (DXB)"
+    ],
+    "duracaoMin": 2025,
+    "aviso": "Volta já filtrada pelo Google, mas confira as conexões da volta antes de comprar."
+   },
+   "descartados": 0,
+   "total": 12,
+   "insights": {
+    "menorGoogle": null,
+    "nivel": null,
+    "faixaTipica": null
+   },
+   "melhorJa": 9235
   },
   "A-flex_2027-10-11_2027-10-18|Google Voos": {
    "id": "A-flex_2027-10-11_2027-10-18",
@@ -1410,6 +1475,34 @@
    {
     "d": "2026-11-26",
     "p": 9887
+   },
+   {
+    "d": "2026-11-27",
+    "p": 10495
+   }
+  ],
+  "A-flex_2027-10-10_2027-10-19|Google Voos": [
+   {
+    "d": "2026-11-27",
+    "p": 10495
+   }
+  ],
+  "A-flex_2027-10-12_2027-10-19|Google Voos": [
+   {
+    "d": "2026-11-27",
+    "p": 10537
+   }
+  ],
+  "A-the|Google Voos": [
+   {
+    "d": "2026-11-27",
+    "p": 1199
+   }
+  ],
+  "A-pek|Google Voos": [
+   {
+    "d": "2026-11-27",
+    "p": 9235
    }
   ]
  },
@@ -1417,30 +1510,30 @@
   "SAO-BJS-2027-10": {
    "rota": "São Paulo⇄Pequim",
    "mes": "2027-10",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "itens": []
   },
   "SAO-BJS-2027-11": {
    "rota": "São Paulo⇄Pequim",
    "mes": "2027-11",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "itens": []
   },
   "SAO-HKG-2027-10": {
    "rota": "São Paulo⇄Hong Kong",
    "mes": "2027-10",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "itens": []
   },
   "SAO-HKG-2027-11": {
    "rota": "São Paulo⇄Hong Kong",
    "mes": "2027-11",
-   "quando": "2026-11-26T19:38:21.573Z",
+   "quando": "2026-11-27T19:29:08.694Z",
    "itens": []
   }
  },
- "atualizado": "2026-11-26T19:38:21.573Z",
- "cotaGoogle": 247,
+ "atualizado": "2026-11-27T19:29:08.694Z",
+ "cotaGoogle": 242,
  "config": {
   "tetoPrincipal": 8000,
   "tetoThe": 1300,
@@ -1491,12 +1584,16 @@
   "alertasUrl": "https://script.google.com/macros/s/AKfycbze2lnXucmeyz7cG8g1qYrha5DEVQbVlfwip6JbVX5UJqRshcEK8GKcEgTXGp4FtY56/exec"
  },
  "log": [
-  "Janela 1, GRU→PEK 11/10 + HKG→GRU 19/10: R$ 9.887.",
-  "Aviasales conectada. São Paulo⇄Pequim saindo em 2027-01: a partir de R$ 8.423."
+  "Janela 1, GRU→PEK 11/10 + HKG→GRU 19/10: R$ 10.495.",
+  "Janela 1 com datas próximas, GRU→PEK 10/10 + HKG→GRU 19/10: R$ 10.495.",
+  "Janela 1 com datas próximas, GRU→PEK 12/10 + HKG→GRU 19/10: R$ 10.537.",
+  "Janela 1, THE⇄GRU 10/10 e 21/10: R$ 1.199.",
+  "Janela 1, GRU⇄PEK (referência): R$ 9.235.",
+  "Aviasales conectada. São Paulo⇄Pequim saindo em 2027-01: a partir de R$ 11.090."
  ],
  "aviasalesTeste": {
-  "quando": "2026-11-26T19:38:21.573Z",
+  "quando": "2026-11-27T19:29:08.694Z",
   "ok": true,
-  "exemplo": "São Paulo⇄Pequim saindo em 2027-01: a partir de R$ 8.423"
+  "exemplo": "São Paulo⇄Pequim saindo em 2027-01: a partir de R$ 11.090"
  }
 }
